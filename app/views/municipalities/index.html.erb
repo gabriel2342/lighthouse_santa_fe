@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Municipalities</h1>
+
+<div id="municipalities">
+  <% @municipalities.each do |municipality| %>
+    <%= render municipality %>
+    <p>
+      <%= link_to "Show this municipality", municipality %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New municipality", new_municipality_path %>
