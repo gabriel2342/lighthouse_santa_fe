@@ -1,7 +1,7 @@
 class CreateServiceProviders < ActiveRecord::Migration[7.0]
   def change
     create_table :service_providers do |t|
-      t.string :name
+      t.string :name, presence: true 
       t.text :about
       t.string :street
       t.string :city
