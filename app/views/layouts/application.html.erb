@@ -13,8 +13,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar'%>
+    <header>
+      <%= render 'layouts/navbar'%>
+    </header>
     <main>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
   </body>
