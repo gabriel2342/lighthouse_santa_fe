@@ -62,9 +62,14 @@
     </div>
 
     <div>
-      <%= form.label :services, style: "display: block" %>
-      <%= form.text_field :services %>
-    </div>
+      <h4>Services Provided: </h4>
+        <% ServiceProvider::SERVICES_PROVIDED.each do |key| %>
+          <%= form.label "services_#{key.downcase.split(" ").join("_")}" do %>
+            <%= form.check_box :services, { multiple: true, checked: form.object.services&.include?(key) }, key, nil %>
+            <%= key %>
+        <% end %>
+       <% end %>
+  </div>
 
     <div>
       <%= form.label :municipality_id, style: "display: block" %>

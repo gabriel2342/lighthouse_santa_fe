@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :service_providers
-  resources :municipalities
-  resources :organizations
+  resources :organizations do
+    resources :municipalities do
+      resources :service_providers
+    end
+  end
   get 'about', to: 'pages#about'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root 'pages#home'
 end

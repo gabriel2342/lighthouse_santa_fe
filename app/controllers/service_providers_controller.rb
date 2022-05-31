@@ -1,5 +1,7 @@
 class ServiceProvidersController < ApplicationController
   before_action :set_service_provider, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+
 
   # GET /service_providers or /service_providers.json
   def index

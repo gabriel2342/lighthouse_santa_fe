@@ -1,5 +1,6 @@
 class MunicipalitiesController < ApplicationController
   before_action :set_municipality, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /municipalities or /municipalities.json
   def index

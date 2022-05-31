@@ -14,11 +14,11 @@
 
   <body>
     <header>
-      <%= render 'layouts/navbar'%>
+      <%= render 'layouts/navbar' if current_user%>
+      <%= render 'layouts/alerts'%>
     </header>
     <main>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+      
       <%= yield %>
     </main>
   </body>
