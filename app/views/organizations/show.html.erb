@@ -3,6 +3,9 @@
 <%= render @organization %>
 
 <div>
+ <div>
+    <%= link_to "Add Municipality", add_municipality_organization_path(@organization), method: :get, class:"btn btn-secondary" %>
+  <div>
   <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
   <%= link_to "Back to organizations", organizations_path %>
 

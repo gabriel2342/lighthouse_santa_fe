@@ -58,6 +58,10 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def add_municipality
+    @organization.municipalities << Municipality.create(municipality_params)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
@@ -68,4 +72,6 @@ class OrganizationsController < ApplicationController
     def organization_params
       params.require(:organization).permit(:name, municiplaities_attributes: [:id, :name, :_destroy])
     end
+
+   
 end
