@@ -1,12 +1,11 @@
 <div id="<%= dom_id municipality %>">
-  <p>
+  <div class="container">
     <strong>Organization:</strong>
-    <%= municipality.organization_id %>
-  </p>
+    <%= municipality.organization.name %>
 
   <p>
     <strong>Name:</strong>
     <%= municipality.name %>
   </p>
-
+  </div>
 </div>

@@ -1,14 +1,19 @@
-<p style="color: green"><%= notice %></p>
+  <p style="color: green"><%= notice %></p>
+</div>
+<div class="container">
+      <h1>Municipalities</h1>
 
-<h1>Municipalities</h1>
-
-<div id="municipalities">
-  <% @municipalities.each do |municipality| %>
-    <%= render municipality %>
-    <p>
-      <%= link_to "Show this municipality", municipality %>
-    </p>
-  <% end %>
+    <div id="municipalities">
+      <% @municipalities.each do |municipality| %>
+        <%= render municipality %>
+        <p>
+        <div class="container">
+          <%= link_to "View", [@organization, municipality] %> | 
+          <%= link_to "Edit", edit_organization_municipality_path(@organization, municipality) %> | 
+          <%= link_to "Delete", [@organization, municipality], data: {"turbo-method": :delete } %>
+        </div>
+        </p>
+      <% end %>
+    </div>
 </div>
 
-<%= link_to "New municipality", new_municipality_path %>
