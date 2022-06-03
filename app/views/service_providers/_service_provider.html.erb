@@ -51,12 +51,16 @@
 
   <p>
     <strong>Services:</strong>
-    <%= service_provider.services %>
+    <%= (service_provider.services).to_sentence %>
   </p>
 
   <p>
     <strong>Municipality:</strong>
-    <%= service_provider.municipality_id %>
+    <%= service_provider.municipality.name %>
+  </p>
+   <p>
+    <strong>Organization:</strong>
+    <%= service_provider.municipality.organization.name %>
   </p>
 
 </div>
