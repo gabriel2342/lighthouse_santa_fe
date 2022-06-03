@@ -6,9 +6,12 @@
   <% @service_providers.each do |service_provider| %>
     <%= render service_provider %>
     <p>
-      <%= link_to "Show this service provider", service_provider %>
+      <div class="container">
+        <%= link_to "View", [@organization, @municipality, service_provider] %> | 
+        <%= link_to "Edit", edit_organization_municipality_service_provider_path(@organization, @municipality, service_provider) %> | 
+        <%= link_to "Delete", [@organization, @municipality, service_provider], data: {"turbo-method": :delete } %>
+      </div>    
     </p>
   <% end %>
 </div>
 
-<%= link_to "New service provider", new_service_provider_path %>

@@ -5,6 +5,10 @@ ruby "3.1.2"
 gem 'phonelib'
 gem 'valid_email2'
 gem 'devise'
+gem 'rspec-rails'
+group :test do
+  gem 'database_cleaner-active_record'
+end
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"

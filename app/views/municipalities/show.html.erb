@@ -4,9 +4,11 @@
   <%= render @municipality %>
 
   <div>
-    <%= link_to "Edit this municipality", edit_organization_municipality_path(@organization, @municipality) %> |
-    <%= link_to "Back to municipalities", organization_municipalities_path %>
+ <div>
+    <%= link_to "Add Service Provider", new_organization_municipality_service_provider_path(@organization, @municipality), class:"btn btn-secondary" %>
+  <div>
+  <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
+  <%= link_to "Back to organizations", organizations_path %>
 
-    <%= button_to "Destroy this municipality", [@organization, @municipality], method: :delete %>
-  </div>
+  <%= button_to "Destroy this organization", @organization, method: :delete %>
 </div>
