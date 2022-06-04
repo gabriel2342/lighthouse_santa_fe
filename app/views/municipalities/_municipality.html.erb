@@ -1,11 +1,7 @@
 <div id="<%= dom_id municipality %>">
-  <div class="container">
-    <strong>Organization:</strong>
-    <%= municipality.organization.name %>
-
   <p>
-    <strong>Name:</strong>
-    <%= municipality.name %>
+    <strong>Municipality:</strong>
+    <%= link_to "#{municipality.name}", [@organization, municipality] %>
   </p>
-  </div>
+
 </div>

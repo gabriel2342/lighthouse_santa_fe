@@ -23,6 +23,13 @@ class ServiceProvider < ApplicationRecord
                         "Legal Services", "Family and Youth Services","Mental Health Services","Substance Use", "Immigration",
                         "Prisoner Re-entry", "Domestic Violence", "Former or Current U.S. military?"]
 
+  def self.search(search)
+    if search
+    where("services @> ARRAY[?]::varchar[]", search)    
+    else
+      all
+    end
+  end
   private
 
   def normalize_phone

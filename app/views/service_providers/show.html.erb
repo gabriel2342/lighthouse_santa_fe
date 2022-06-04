@@ -7,6 +7,6 @@
   <div>
     <%= link_to "Edit this service provider", edit_organization_municipality_service_provider_path(@organization, @municipality,@service_provider) %> |
     <%= link_to "Back to service providers", organization_municipality_service_providers_path %>
-    <%= link_to "Delete", [@organization, @municipality, service_provider], data: {"turbo-method": :delete } %>
+    <%= link_to "Delete", [@organization, @municipality, @service_provider], data: {"turbo-method": :delete } %>
   </div>
 </div>

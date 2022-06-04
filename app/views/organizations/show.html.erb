@@ -1,13 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @organization %>
+  <%= render @organization %>
+  <%= render @organization.municipalities %>
 
-<div>
- <div>
-    <%= link_to "Add Municipality", new_organization_municipality_path(@organization), class:"btn btn-secondary" %>
   <div>
-  <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
-  <%= link_to "Back to organizations", organizations_path %>
+  <div>
+      <%= link_to "Add Municipality", new_organization_municipality_path(@organization), class:"btn btn-secondary" %>
+    <div>
+    <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
+    <%= link_to "Back to organizations", organizations_path %>
 
-  <%= button_to "Destroy this organization", @organization, method: :delete %>
+    <%= button_to "Destroy this organization", @organization, method: :delete %>
+  </div>
 </div>

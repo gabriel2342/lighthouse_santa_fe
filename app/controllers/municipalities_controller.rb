@@ -76,5 +76,5 @@ class MunicipalitiesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def municipality_params
       params.require(:municipality).permit(:name, organizations_attributes: [:id, :name, :_destroy], service_providers_attributes: [:id, :name, :about, :street, :city, :state, :zip, :contact_person, :phone, :email, :url, :services])
-
+    end
 end

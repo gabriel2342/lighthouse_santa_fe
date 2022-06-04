@@ -80,6 +80,6 @@ class ServiceProvidersController < ApplicationController
     def service_provider_params
       params.require(:service_provider).permit(:name, :about, :street, :city, :state, :zip, :contact_person, :phone, :email, :url,
                                                organizations_attributes: [:id, :name, :_destroy],
-                                               municipalities_attributes: [:id, :name, :_destroy], services: [])
+                                               municipalities_attributes: [:id, :name, :_destroy], services: [], search: [])
     end
 end

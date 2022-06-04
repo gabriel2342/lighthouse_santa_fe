@@ -7,6 +7,9 @@
  <div>
     <%= link_to "Add Service Provider", new_organization_municipality_service_provider_path(@organization, @municipality), class:"btn btn-secondary" %>
   <div>
+
+  <%= link_to "View all municipalities", organization_municipalities_path(@organization) %> |
+
   <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
   <%= link_to "Back to organizations", organizations_path %>
 
