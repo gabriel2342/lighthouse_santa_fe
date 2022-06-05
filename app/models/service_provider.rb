@@ -1,6 +1,7 @@
 class ServiceProvider < ApplicationRecord
   belongs_to :municipality
   before_save :normalize_phone
+  has_one_attached :image
   
   validates :phone, phone: true, allow_blank: true
   validates :email, 'valid_email_2/email': { mx: true, disposable: true, disallow_subaddressing: true, message: "is not a valid email address" }, allow_blank: true

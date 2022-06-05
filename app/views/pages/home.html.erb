@@ -1,34 +1,42 @@
 <div class="container">
-  <br>
-  <%= link_to "Sign_in", new_user_session_path%>
-  <%= link_to "New Organization", new_organization_path, class:"btn btn-secondary" %>
-  <%= link_to "View Organizations", organizations_path, class:"btn btn-secondary" %>
+  <div class="card-body p-5 ">
+  <div class="row">
+  <div class="col">
+    <div class="mx-auto p-0 w-75 bg-dark text-white d-flex align-items-center">
+      <div class="container ""><br>
+        <h1>What do you need help with?</h1>
 
-  <div class="container"><br>
-    <h1>Flourish</h1>
+        <% search_params = params[:search] || []%>
 
-    <% search_params = params[:search] || []%>
-
-    <%= form_with(url: '/', method: 'get', local: true) do %>
-      <%= check_box_tag("search[]", "Long Term Housing", search_params.include?("Long Term Housing")) %> Long Term Housing <br>                                           
-      <%= check_box_tag("search[]", "Shelter", search_params.include?("Shelter") ) %> Immediate Housing <br>                                       
-      <%= check_box_tag("search[]", "Finding Food", search_params.include?("Finding Food")) %> Finding Food <br>
-      <%= check_box_tag("search[]", "Transportation", search_params.include?("Transportation")) %> Transportation <br>
-      <%= check_box_tag("search[]", "Legal Services", search_params.include?("Legal Services")) %> Legal Services <br>
-      <%= check_box_tag("search[]", "Family and Youth Services", search_params.include?("Family and Youth Services")) %> Family Services <br>                               
-      <%= check_box_tag("search[]", "Mental Health Services", search_params.include?("Mental Health Services")) %> Mental Health Services <br>
-      <%= check_box_tag("search[]", "Substance Use", search_params.include?("Substance Use")) %> Substance Use <br> 
-      <%= check_box_tag("search[]", "Immigration or Refugee Support", search_params.include?("Immigration or Refugee Support")) %> Immigration or Refugee Support <br>
-      <%= check_box_tag("search[]", "Prisoner Re-entry", search_params.include?("Prisoner Re-entry")) %> Prisoner Re-entry <br>
-      <%= check_box_tag("search[]", "Domestic Violence", search_params.include?("Domestic Violence")) %> Domestic Violence <br>
-      <%= check_box_tag("search[]", "Former or Current U.S. military?", search_params.include?("Former or Current U.S. military?")) %> Former or Current U.S. military? <br><br>
-      <%= submit_tag("Search") %>
-    <% end %>
-    <br><br>
-
-    <%@service_providers.each do |provider|%>
-      <%= render provider %>
-    <% end %>
+        <%= form_with(url: '/', method: 'get', local: true) do %>
+          <%= check_box_tag("search[]", "Long Term Housing", search_params.include?("Long Term Housing")) %> Long Term Housing <br>                                           
+          <%= check_box_tag("search[]", "Shelter", search_params.include?("Shelter") ) %> Immediate Housing <br>                                       
+          <%= check_box_tag("search[]", "Finding Food", search_params.include?("Finding Food")) %> Finding Food <br>
+          <%= check_box_tag("search[]", "Transportation", search_params.include?("Transportation")) %> Transportation <br>
+          <%= check_box_tag("search[]", "Legal Services", search_params.include?("Legal Services")) %> Legal Services <br>
+          <%= check_box_tag("search[]", "Family and Youth Services", search_params.include?("Family and Youth Services")) %> Family Services <br>                               
+          <%= check_box_tag("search[]", "Mental Health Services", search_params.include?("Mental Health Services")) %> Mental Health Services <br>
+          <%= check_box_tag("search[]", "Substance Use", search_params.include?("Substance Use")) %> Substance Use <br> 
+          <%= check_box_tag("search[]", "Immigration or Refugee Support", search_params.include?("Immigration or Refugee Support")) %> Immigration or Refugee Support <br>
+          <%= check_box_tag("search[]", "Prisoner Re-entry", search_params.include?("Prisoner Re-entry")) %> Prisoner Re-entry <br>
+          <%= check_box_tag("search[]", "Domestic Violence", search_params.include?("Domestic Violence")) %> Domestic Violence <br>
+          <%= check_box_tag("search[]", "Former or Current U.S. military?", search_params.include?("Former or Current U.S. military?")) %> Former or Current U.S. military? <br><br>
+          <%= submit_tag("Search") %>
+        <% end %>
+        <br><br>
+          <%@service_providers.each do |provider|%>
+                  <%= render provider %>
+          <% end %>
+      </div>
+    </div>
   </div>
-
 </div>
+</div>
+</div>
+  <div class="container">
+        <br>
+        <%= link_to "Sign_in", new_user_session_path%>
+        <%= link_to "New Organization", new_organization_path, class:"btn btn-secondary" %>
+        <%= link_to "View Organizations", organizations_path, class:"btn btn-secondary" %>
+      </div>
+
