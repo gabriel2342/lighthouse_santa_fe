@@ -1,11 +1,11 @@
 class ServiceProvider < ApplicationRecord
-  belongs_to :municipality
+  belongs_to :municipality, optional: true
   before_save :normalize_phone
   has_one_attached :image
-  
+
   validates :phone, phone: true, allow_blank: true
   validates :email, 'valid_email_2/email': { mx: true, disposable: true, disallow_subaddressing: true, message: "is not a valid email address" }, allow_blank: true
-
+  validates_presence_of :name, :street, :city, :state, :zip, :contact_person, :email, :phone, :url, :municipality_id, :services
   def formatted_phone
     parsed_phone = Phonelib.parse(phone)
     return phone if parsed_phone.invalid?
@@ -26,11 +26,12 @@ class ServiceProvider < ApplicationRecord
 
   def self.search(search)
     if search
-    where("services @> ARRAY[?]::varchar[]", search)    
+      where("services @> ARRAY[?]::varchar[]", search)    
     else
       all
     end
   end
+
   private
 
   def normalize_phone

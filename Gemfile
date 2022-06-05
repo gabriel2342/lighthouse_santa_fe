@@ -5,7 +5,6 @@ ruby "3.1.2"
 gem 'phonelib'
 gem 'valid_email2'
 gem 'devise'
-gem 'rspec-rails'
 group :test do
   gem 'database_cleaner-active_record'
 end
@@ -76,6 +75,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development, :test do
