@@ -1,17 +1,39 @@
   
   <div class="container bg-dark text-white w-75">
     <p style="color: white"><%= notice %></p>
-
-    <h1>Organizations</h1>
-
-    <div id="organizations">
-      <% @organizations.each do |organization| %>
-        <%= render organization %>
-        <p>
-          <%= link_to "Show this organization", organization %>
-        </p>
-      <% end %>
+    <div class="container border">
+      <h1>Organizations </h1>
+      <%= link_to "Add Organization", new_organization_path, class: "btn btn-danger" %>
     </div>
 
-    <%= link_to "New organization", new_organization_path %>
+    <div id="organizations">
+    <table class="table border text-white">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Municipalities
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @organizations.each do |organization| %>
+          <% array = [] %>
+          <tr>
+            <td><%= link_to organization.name, organization %></td>
+            <td>
+              <% organization.municipalities.each do |municipality|%>
+                <% array.push(municipality.name)%>
+              <% end %>
+              <%= array.to_sentence%>
+            </td>
+            <td>
+              <%= link_to 'Show', organization %> |
+              <%= link_to 'Edit', edit_organization_path(organization) %> |
+              <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
   </div>
