@@ -5,7 +5,7 @@ class ServiceProvider < ApplicationRecord
 
   validates :phone, phone: true, allow_blank: true
   validates :email, 'valid_email_2/email': { mx: true, disposable: true, disallow_subaddressing: true, message: "is not a valid email address" }, allow_blank: true
-  validates_presence_of :name, :street, :city, :state, :zip, :contact_person, :email, :phone, :url, :municipality_id, :services
+  validates_presence_of :name, :about, :street, :city, :state, :zip, :email, :phone, :url, :municipality_id, :services
   def formatted_phone
     parsed_phone = Phonelib.parse(phone)
     return phone if parsed_phone.invalid?

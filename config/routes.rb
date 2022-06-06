@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
     
 
-  
+  get 'contact', to: 'pages#contact'
   get 'about', to: 'pages#about'
   root 'pages#home'
 end

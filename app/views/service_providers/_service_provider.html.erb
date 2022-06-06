@@ -1,7 +1,7 @@
 <div id="<%= dom_id service_provider %>">
   
   
-  <div class="card text-white bg-dark border-light pb-15 rounded-3" style="max-width: 700px;">
+  <div class="card text-white bg-dark border-light rounded-3 mb-5" style="max-width: 700px;">
   <div class="row g-0">
     <div class="col-md-3">
      <% if service_provider.image.present?%>
@@ -17,16 +17,16 @@
         <p class="card-text">The services provided by <%=service_provider.name%> are <%="#{((service_provider.services).to_sentence).downcase}."%></p>
         <p class="card-text">Website:<%= link_to "#{service_provider.url}", "http://#{service_provider.url}"%></p>
        
-        <div class="row g-10">
+        <div class="row text-center">
 
-          <div class="col-md-3 justify-content-center">
+          <div class="col-md-3 ">
             <p class="card-text"><a href="tel:<%=service_provider.phone%>"><img src="https://static.vecteezy.com/system/resources/previews/000/582/374/original/telephone-symbol-icon-vector-illustration.jpg" width="50" height="50"></a><br>Call</p>
           </div>  
           <div class="col-md-3">
             <p class="card-text"><a href="mailto:<%=service_provider.email%>"><img src="https://static.vecteezy.com/system/resources/previews/000/581/545/original/email-icon-vector-illustration.jpg" width="50" height="50"></a><br>Email</p>
           </div>
           <div class="col-md-3">
-            <p class="card-text"><a href="sms:<%=service_provider.phone%>"><img src="https://i.pinimg.com/originals/b7/ce/2f/b7ce2fd14b95df9582d7bd3c5a59cd74.png" width="50" height="50"></a><br>Text</p>
+            <p class="card-text"><a href="sms:<%=service_provider.phone%>"><img src="https://lh3.googleusercontent.com/G5A21U6XhWtZusucEhuShOfNIjcpXEEHZb3guPsTM9pKamZ6fye7ZhiqI9kV3_IggSAWWEUquaJax0QT4mZgi7-HQGl0caho3rs8whY_j2oGP16UkJ_sY2W7GmL37kikBK1sz0mp_KpfShWuYfJM7mM9-qt9_F-I7hN413c5sFMJjeUKenwsRF0cuxB_HQE_1H5ZWVnr3Zvu6UDOa7_efxF94z5Txu0032Fz8Gwjf-dpKYKO7fXPYtXBWj3YtIVmmNmTf1Pw5nuB--IwYOR9I3ilo6h4zxsnj1pJKwz3XbaR_Vn9AnjKB6HTWE0cQ1F2sbVW18bDW1ygSgno4gOuOb4b2ZParbpH5TR2GPDwClat8BcUnrDZ4tKWzi2XjuFyIpr9E_awdW_5yihS9-hSzyTGBDulRUIh65aiR4i7o5C-i4SvF_wQiQ0ay58gZolf2SIiV6S0AT_PX3Kdc94deDmR8Oc8op38vhBVrdW6s2Czv4h1vhRb7_NEvBHxEh1_1_txo1skBcuBCEE546zCiMkinVH_Ao7OE7P1KptclzGeNaVomJKRnFzW3x-GtyqoaORErpBRiYNznCD73WFC3EPR464t0cq3yvM6vd2G1uEnukmcY1o4svE_E1GyF-E0NPe1YRymjoUrj4HF1kvDSgFR07efr8D1mrQbGDEnYqB_hvjK8fGBdR444XDT03rB1DfCxw_YIytriNqNgIKiSzXmVwf1HNaffB_dNbJ-B4JoEYmWo6AXxcfTEfzx=s512-no?authuser=0" width="50" height="50"></a><br>Text</p>
           </div>
         </div>
       
