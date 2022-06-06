@@ -2,8 +2,17 @@
   <div class="container bg-dark text-white w-75">
     <p style="color: white"><%= notice %></p>
     <div class="container border">
-      <h1>Organizations </h1>
-      <%= link_to "Add Organization", new_organization_path, class: "btn btn-danger" %>
+      <div class="container d-flex justify-content-between">
+        
+          <h1>Organizations </h1>
+        
+        <div class="container d-flex justify-content-end align-items-center">
+          <%= turbo_frame_tag "new_org" do %>
+            <%= link_to "Add Organization", new_organization_path, data: { turbo_frame: "new_org_frame"}, class: "btn btn-danger" %>
+          <% end %>
+          <%= turbo_frame_tag "new_org_frame" do %><% end %>
+        </div>
+      </div>
     </div>
 
     <div id="organizations">
@@ -27,9 +36,9 @@
               <%= array.to_sentence%>
             </td>
             <td>
-              <%= link_to 'Show', organization %> |
+              <%= link_to 'View', organization %> |
               <%= link_to 'Edit', edit_organization_path(organization) %> |
-              <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to "Delete", organization, data: {"turbo-method": :delete} %>
             </td>
           </tr>
         <% end %>

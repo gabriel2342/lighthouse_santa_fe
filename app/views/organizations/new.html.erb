@@ -1,5 +1,6 @@
 <div class="container bg-dark text-white w-50 pt-10">
   <h1>New organization</h1>
-
-  <%= render "form", organization: @organization %>
+  <%= turbo_frame_tag "new_org_frame" do %>
+    <%= render "form", organization: @organization %>
+  <% end %>
 </div>

@@ -1,8 +1,20 @@
 <div class="container">
   <div class="card-body mx-auto mt-5 w-75 bg-dark text-white">
-      <br>
+    <div class="containerd d-flex justify-content-center">
+      <h1> Where are you looking for help? </h1> 
+    </div>
+    <div class="containerd d-flex justify-content-center">
+        <%= form_with(url: '/', method: 'get', local: true) do |form| %>
+          <%= form.collection_select :municipality_id, Municipality.order(:name), :id, :name %>
+        <% end %>
+        </div><br><br>
+      
+
+
+
+
       <div class="container d-flex justify-content-center">
-        <h1>What do you need help with?</h1>
+        <h2>What do you need help with?</h2>
       </div>
       <div class="container d-flex justify-content-center">
         <% search_params = params[:search] || []%>
@@ -18,12 +30,12 @@
           <%= check_box_tag("search[]", "Immigration or Refugee Support", search_params.include?("Immigration or Refugee Support")) %> Immigration or Refugee Support <br>
           <%= check_box_tag("search[]", "Prisoner Re-entry", search_params.include?("Prisoner Re-entry")) %> Prisoner Re-entry <br>
           <%= check_box_tag("search[]", "Domestic Violence", search_params.include?("Domestic Violence")) %> Domestic Violence <br>
-          <%= check_box_tag("search[]", "Former or Current U.S. military?", search_params.include?("Former or Current U.S. military?")) %> Former or Current U.S. military? <br><br>
+          <%= check_box_tag("search[]", "Former or Current U.S. military?", search_params.include?("Former or Current U.S. military?")) %> Former or Current U.S. military? <br>
           <%= submit_tag("Search") %>
         <% end %>
       </div>
 
-      <br><br>
+      <br><br><br>
       <div class="container d-flex justify-content-center">
         <%@service_providers.each do |provider|%>
                 <%= render provider %>
