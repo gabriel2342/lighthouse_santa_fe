@@ -1,48 +1,20 @@
   
-  <div class="container bg-dark text-white w-75">
-    <p style="color: white"><%= notice %></p>
-    <div class="container border">
+  <div class="container bg-light w-50">
+    <div class="container">
       <div class="container d-flex justify-content-between">
-        
+
           <h1>Organizations </h1>
         
         <div class="container d-flex justify-content-end align-items-center">
           <%= turbo_frame_tag "new_org" do %>
-            <%= link_to "Add Organization", new_organization_path, data: { turbo_frame: "new_org_frame"}, class: "btn btn-danger" %>
+            <%= link_to "Add Organization", new_organization_path, data: { turbo_frame: dom_id(Organization.new)}, class: "btn btn-primary" %>
           <% end %>
-          <%= turbo_frame_tag "new_org_frame" do %><% end %>
         </div>
       </div>
     </div>
 
-    <div id="organizations">
-    <table class="table border text-white">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Municipalities
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @organizations.each do |organization| %>
-          <% array = [] %>
-          <tr>
-            <td><%= link_to organization.name, organization %></td>
-            <td>
-              <% organization.municipalities.each do |municipality|%>
-                <% array.push(municipality.name)%>
-              <% end %>
-              <%= array.to_sentence%>
-            </td>
-            <td>
-              <%= link_to 'View', organization %> |
-              <%= link_to 'Edit', edit_organization_path(organization) %> |
-              <%= link_to "Delete", organization, data: {"turbo-method": :delete} %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    </div>
+    <%= turbo_frame_tag Organization.new %>
+    <%= turbo_frame_tag "organizations" do %>
+      <%= render @organizations%>
+    <% end %>
   </div>

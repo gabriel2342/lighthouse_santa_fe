@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
   before_action :authenticate_user!
   # GET /organizations or /organizations.json
   def index
-    @organizations = Organization.all
+    @organizations = Organization.ordered
   end
 
   # GET /organizations/1 or /organizations/1.json
@@ -28,6 +28,7 @@ class OrganizationsController < ApplicationController
       if @organization.save
         format.html { redirect_to organization_url(@organization), notice: "Organization was successfully created." }
         format.json { render :show, status: :created, location: @organization }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
@@ -55,6 +56,7 @@ class OrganizationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to organizations_url, notice: "Organization was successfully destroyed." }
       format.json { head :no_content }
+      format.turbo_stream
     end
   end
 

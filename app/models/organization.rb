@@ -4,4 +4,6 @@ class Organization < ApplicationRecord
   accepts_nested_attributes_for :municipalities, allow_destroy: true
 
   validates_presence_of :name
+
+  scope :ordered, -> { order(id: :desc) }
 end

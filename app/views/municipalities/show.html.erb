@@ -1,17 +1,33 @@
-<div class="container">
+<div class="container bg-light w-50">
   <p style="color: green"><%= notice %></p>
 
-  <%= render @municipality %>
+<table class="table border">
+  <div class="container text-center">
+    <%= render @municipality %>
+  </div>
+  
 
-  <div>
- <div>
-    <%= link_to "Add Service Provider", new_organization_municipality_service_provider_path(@organization, @municipality), class:"btn btn-secondary" %>
-  <div>
-
-  <%= link_to "View all municipalities", organization_municipalities_path(@organization) %> |
-
-  <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
-  <%= link_to "Back to organizations", organizations_path %>
-
-  <%= button_to "Destroy this organization", @organization, method: :delete %>
+  <thead>
+    <tr>
+      <th scope="col">Service Providers</th>
+      <th scope="col">Provided Services</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody> 
+    <% @organization.municipalities.each do |municipality| %>
+      <% municipality.service_providers.each do |provider| %>
+      <tr>
+        <td><%= link_to provider.name, [@organization, @municipality, provider] %></td>
+        <td><%= provider.services.to_sentence%></td>
+        <td>
+          <%= link_to 'Show', [@organization, @municipality, provider] %> |
+          <%= link_to 'Edit', edit_organization_municipality_service_provider_path(@organization, @municipality, provider) %> |
+          <%= link_to 'Delete', [@organization, @municipality, provider], method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+</tbody>
+</table>
 </div>

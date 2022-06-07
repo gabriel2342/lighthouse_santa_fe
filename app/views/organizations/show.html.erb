@@ -1,26 +1,18 @@
-<div class="container">
-<p style="color: green"><%= notice %></p>
 
-<%= render @organization %>
-    <table class="table border text-white">
-      <thead>
-        <tr>
-          <th scope="col">Municipality</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <% @organization.municipalities.each do |municipality| %>
-          <tr>
-            <td><%= link_to municipality.name, [@organization, municipality] %></td>
-            <td>
-              <%= link_to 'Show', [@organization, municipality] %> |
-              <%= link_to 'Edit', edit_organization_municipality_path(@organization, municipality) %> |
-              <%= link_to 'Destroy', [@organization, municipality], method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<div class="container bg-light w-50">
+  <p style="color: white"><%= notice %></p>
+
+  <div class="container text-center d-flex align-items-center">
+   <h2><%= @organization.name%></h2>
+    <div class="container d-flex justify-content-end">
+      <%= link_to "Add Municipality", new_organization_municipality_path(@organization), class: 'btn btn-primary'%>
     </div>
+
+  </div>
+   <div class="container d-flex">
+      <%@organization.municipalities.each do |municipality|%>
+        <%= municipality.name%>
+      <% end %>
+    </div>
+</div>
+  
