@@ -33,6 +33,7 @@ class MunicipalitiesController < ApplicationController
       if @municipality.save
         format.html { redirect_to organization_municipality_url(@organization, @municipality), notice: "Municipality was successfully created." }
         format.json { render :show, status: :created, location: @municipality }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @municipality.errors, status: :unprocessable_entity }

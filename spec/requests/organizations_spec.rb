@@ -17,8 +17,10 @@ RSpec.describe "Organizations", type: :request do
   end
 
   describe "GET organization#show" do
-    organization_params = { organization: { name: "Homelessness Boooooo", id: 1 } }
-    organization = Organization.create(organization_params[:organization])
-    get organization_path, params: organization_params
+    it "returns http success" do
+      organization_params = { organization: { name: "Homelessness Boooooo", id: "423" } }
+      get organization_path, params: organization_params
+      expect(response).to have_http_status(302)
+    end
   end
 end

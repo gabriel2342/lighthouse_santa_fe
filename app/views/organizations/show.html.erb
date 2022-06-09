@@ -2,17 +2,21 @@
 <div class="container bg-light w-50">
   <p style="color: white"><%= notice %></p>
 
-  <div class="container text-center d-flex align-items-center">
+  <header class="container text-center d-flex align-items-center">
    <h2><%= @organization.name%></h2>
     <div class="container d-flex justify-content-end">
-      <%= link_to "Add Municipality", new_organization_municipality_path(@organization), class: 'btn btn-primary'%>
-    </div>
-
-  </div>
-   <div class="container d-flex">
-      <%@organization.municipalities.each do |municipality|%>
-        <%= municipality.name%>
+      <%= turbo_frame_tag @municipality do %>
+        <%= link_to "Add Municipality", 
+                    new_organization_municipality_path(@organization), 
+                    data: {turbo_frame: dom_id(Municipality.new)}, 
+                    class: 'btn btn-primary'%>
       <% end %>
     </div>
+  </header>
+   <%= turbo_frame_tag Municipality.new%>
+   <%= turbo_frame_tag "municipalities" do%>
+      <%= render @organization.municipalities%>
+      <% end %>
+    
 </div>
   

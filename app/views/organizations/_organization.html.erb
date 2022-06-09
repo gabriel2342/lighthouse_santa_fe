@@ -1,19 +1,23 @@
-<%= turbo_frame_tag organization do %>
-  <div id="<%= dom_id organization %>">
-    <div class="row">
-      <div class="col">
+<div id="<%= dom_id organization %>">
+  <div class="card">
+    <div class="card-body">
+
+      <div class="card-title">
         <%= link_to organization.name, organization_path(organization), data: { turbo_frame: "_top"} %>
       </div>
-      <div class="col">
+
+      <div class="card-text">
         <% organization.municipalities.each do |municipality|%>
         <%= municipality.name%>
         <% end %> 
       </div>
+
       <div class="col d-flex inline align-items-center">
-        <%= link_to 'Edit', edit_organization_path(organization), class: "btn btn-secondary mx-1"%>  
-        <%= button_to "Delete", organization_path(organization), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "btn btn-danger mx-1"%>
+      <%= link_to 'Edit', edit_organization_path(organization), class: "btn btn-secondary mx-1"%>  
+      <%= button_to "Delete", organization_path(organization), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "btn btn-danger mx-1"%>
       </div>
     </div>
   </div>
-<% end %>
+</div>
+
 

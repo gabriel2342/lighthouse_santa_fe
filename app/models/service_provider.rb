@@ -26,7 +26,15 @@ class ServiceProvider < ApplicationRecord
 
   def self.search(search)
     if search
-      where("services @> ARRAY[?]::varchar[]", search)    
+      where("services && ?", "{#{search.join(',')}}")
+    else
+      all
+    end
+  end
+
+  def self.muni_search(muni_search)
+    if muni_search 
+      where("municipality = ?", muni_search)
     else
       all
     end

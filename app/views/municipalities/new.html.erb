@@ -1,11 +1,12 @@
 <div class="container bg-dark text-white w-50">
+    <%= link_to "Back to municipalities", organization_municipalities_path(@organization), class: "btn btn-primary" %>
+
   <h1>New municipality</h1>
-
+<%= turbo_frame_tag @municipality do %>
   <%= render "form", municipality: @municipality %>
-
+<% end %>
   <br>
 
   <div>
-    <%= link_to "Back to municipalities", organization_municipalities_path(@organization) %>
   </div>
 </div>

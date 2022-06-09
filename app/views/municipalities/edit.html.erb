@@ -1,6 +1,7 @@
 <h1>Editing municipality</h1>
-
-<%= render "form", municipality: @municipality %>
+<%= turbo_frame_tag @municipality do %>
+  <%= render "form", municipality: @municipality %>
+<% end %>
 
 <br>
 

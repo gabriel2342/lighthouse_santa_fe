@@ -8,6 +8,7 @@ gem 'devise'
 group :test do
   gem 'database_cleaner-active_record'
 end
+gem 'select2-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
