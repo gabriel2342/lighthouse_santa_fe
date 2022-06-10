@@ -1,6 +1,7 @@
+  <div class="container">
   <%= form_with(model: [@organization, @municipality, service_provider]) do |form| %>
     <% if service_provider.errors.any? %>
-      <div style="color: red">
+      <div style="color: white">
         <h2><%= pluralize(service_provider.errors.count, "error") %> prohibited this service_provider from being saved:</h2>
 
         <ul>
@@ -11,14 +12,16 @@
       </div>
     <% end %>
 
-  <div>
-      <%= form.label "Organization Logo", style: "display: block" %>
-      <%= form.file_field :image %>
-    </div>
+ 
 
     <div>
       <%= form.label :name, style: "display: block" %>
       <%= form.text_field :name %>
+    </div>
+
+     <div>
+      <%= form.label "Logo", style: "display: block" %>
+      <%= form.file_field :image %>
     </div>
 
     <div>
@@ -64,7 +67,7 @@
     <div>
       <%= form.label :url, style: "display: block" %>
       <%= form.text_field :url %>
-    </div>
+    </div> <br>
 
     <div>
       <h4>Services Provided: </h4>
@@ -82,4 +85,5 @@
       <%= form.submit %>
     </div>
   <% end %>
+  </div>
 

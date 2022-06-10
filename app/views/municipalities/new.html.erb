@@ -3,8 +3,13 @@
 
   <h1>New municipality</h1>
 <%= turbo_frame_tag @municipality do %>
+    <tbody>
+
   <%= render "form", municipality: @municipality %>
+      </tbody>
+
 <% end %>
+
   <br>
 
   <div>

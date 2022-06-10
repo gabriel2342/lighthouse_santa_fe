@@ -9,10 +9,10 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title"><%="#{service_provider.name}"%></h5>
-          <p class="card-text"><%="#{service_provider.municipality.name}"%> | <%= link_to "Get Directions", "http://maps.google.com/?=#{service_provider.street} #{service_provider.city}, #{service_provider.state}, #{service_provider.zip}"%></p>
+          <p class="card-text"><%="#{service_provider.municipality.name}"%> | <%= link_to "Get Directions", "http://maps.google.com/?=#{service_provider.street} #{service_provider.city}, #{service_provider.state}, #{service_provider.zip}", class: "text-info"%></p>
           <p class="card-text"><%= "#{service_provider.about}"%></p>
           <p class="card-text">The services provided by <%=service_provider.name%> are <%="#{((service_provider.services).to_sentence).downcase}."%></p>
-          <p class="card-text">Website: <%= link_to "#{service_provider.url}", "http://#{service_provider.url}"%></p>
+          <p class="card-text">Website: <%= link_to "#{service_provider.url}", "http://#{service_provider.url}", class: "text-info"%></p>
         </div>
 
         <div class="row text-center">
@@ -25,6 +25,7 @@
           <div class="col-md-3">
             <p class="card-text"><a href="sms:<%=service_provider.phone%>"><img src="https://lh3.googleusercontent.com/aq18raByZKk0GP81ww_VGUr3yDwcTQJigY_C5tDmijszCPwulirQlU9fkYUBFOnBuLpCN_7CXGLXRgqsj8XriLvS3jUMhK18Euh2QsAlLKsyZ6xJf_owKqacl55SSG75fZ4_VVVJ_6lEg98oStYi4riZFivgPYALpnF1ZTZ3b-NWX7q6WDkPwO0-0-LPhQsuRC24IHipJ4Kyrd7gbmrRhJJ0KR0gdEx9N9G3sM0GUKOE7Ow9L8OUk3HWG3BR6K2MVAK3KxfurBEuwsmUS7MAsF04bIwqJ2wBWamky_PHfk3dGq3C5n5k9xrxeNmnm_MBPS1UQlRqxOD-6S7GlMGjUfMh6dCAyBcJi1Kxj5iU8B1eRc17wp3Yak3BwqZK25k4dtu6V-QjoLBznYHQVLOnTfof1Mo1C6MrScimXc8M-44mgY_okkhn-q-XebyBQd_4kj0YgpEpLRNfV0PxBmZzqBgfn1wj7218P0QHB1DU-4igQ3hQKlNVF8pEuX91vW-H2JHc5TRxy6idVaZwX5YiXkem2ViGesCvFULSvQvkOnZy1zz1B_wxQ94Of7mahfRl38nbeWyAxOOPMxpK3GnSt59RwlTCRErqtYl_xO7DQ85clnrPPM3Uvd8cqMeVgI-BO83QGqtzBhUJxY3SJRnMEn6HVv_rPGXNajvRpFrSwEDYNIU4Ks0bZNSUvgyatrFv3jpkaoz5_OxxF-rJ6jog-BB7i9XGpuu-SJqzbxo-fOKoBWO1j4V96ckooB7-=s512-no?authuser=0" width="50" height="50"></a><br>Text</p>
           </div>
+          
       </div><br>
     </div>
   </div>

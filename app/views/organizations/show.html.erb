@@ -1,6 +1,5 @@
 
-<div class="container bg-light w-50">
-  <p style="color: white"><%= notice %></p>
+<div class="container bg-dark text-white w-50 mt-5 pb-3">
 
   <header class="container text-center d-flex align-items-center">
    <h2><%= @organization.name%></h2>
@@ -13,10 +12,16 @@
       <% end %>
     </div>
   </header>
+    <br>
+  <div class="container text-center p-2 text-decoration-underline">
+    <h2>Municipalities</h2>
+  </div>
+
    <%= turbo_frame_tag Municipality.new%>
    <%= turbo_frame_tag "municipalities" do%>
       <%= render @organization.municipalities%>
-      <% end %>
+    <% end %>
+</div>
     
 </div>
   

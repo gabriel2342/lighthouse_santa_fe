@@ -1,13 +1,14 @@
-<div class="container">
-
-  <h1>New service provider</h1>
+<div class="container bg-dark text-white w-50 mt-3 pb-3">
+  <div class="container text-center">
+    <h1>Add a service provider</h1>
+  </div>
 
   <%= render "form", service_provider: @service_provider %>
 
   <br>
 
   <div>
-    <%= link_to "Back to service providers", organization_municipality_service_providers_path(@organization, @municipality) %>
+    <%= link_to "Back to Municipality", organization_municipality_path(@organization, @municipality), class: "btn btn-primary" %>
   </div>
 
 </div>

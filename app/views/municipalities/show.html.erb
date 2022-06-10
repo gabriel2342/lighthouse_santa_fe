@@ -1,33 +1,26 @@
-<div class="container bg-light w-50">
+<div class="container bg-dark text-white w-50 pb-3">
   <p style="color: green"><%= notice %></p>
-
-<table class="table border">
-  <div class="container text-center">
-    <h1><%= @municipality.name %></h1>
+  <%= link_to "Back to Home", organization_path, class: "text-info"%>
+  <div class="container mb-2 pt-3 d-flex align-items-center"> 
+    <div class="container text-center">
+      <h1><%= @municipality.name %></h1>
+    </div>
+    <div class="container d-flex justify-content-end ">
+      <%= link_to "Add Service Provider", new_organization_municipality_service_provider_path(@organization, @municipality), class: "btn btn-primary" %>
+    </div>   
   </div>
-  
+<div class="container text-center text-decoration-underline">
+  <br><h2>Service Providers</h2>
+</div>
 
-  <thead>
-    <tr>
-      <th scope="col">Service Providers</th>
-      <th scope="col">Provided Services</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody> 
-    <% @organization.municipalities.each do |municipality| %>
-      <% municipality.service_providers.each do |provider| %>
-      <tr>
-        <td><%= link_to provider.name, [@organization, @municipality, provider] %></td>
-        <td><%= provider.services.to_sentence%></td>
-        <td>
-          <%= link_to 'Show', [@organization, @municipality, provider] %> |
-          <%= link_to 'Edit', edit_organization_municipality_service_provider_path(@organization, @municipality, provider) %> |
-          <%= link_to 'Delete', [@organization, @municipality, provider], method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-      <% end %>
-    <% end %>
-</tbody>
-</table>
+ <% @municipality.service_providers.each do |provider|%>
+          <%= render provider %>
+          <div class="container d-flex justify-content-center mb-3">
+            <div class="container d-flex justify-content-end">
+              <%= link_to 'Edit', edit_organization_municipality_service_provider_path(@organization, @municipality, provider),  class: "btn btn-primary"  %> 
+            </div>
+             <%= link_to 'Delete', [@organization, @municipality, provider], method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-danger"  %>
+          </div>
+        <% end %>
+      
 </div>

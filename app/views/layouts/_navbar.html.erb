@@ -15,8 +15,8 @@
         </li>
       </ul>
           <% if user_signed_in? %>
-              <%= link_to "Organization", organizations_path, class: 'btn btn-secondary'%>   |     
-              <%= link_to "Municipalities FIX THIS", organizations_path, class: 'btn btn-secondary'%>   |   
+              <%= link_to "Home", organizations_path, class: 'btn btn-secondary'%>   |     
+              <%# <%= link_to "Municipalities FIX THIS", organizations_path, class: 'btn btn-secondary'%> 
               <%= button_to "Logout", destroy_user_session_path, method: :delete, class:'btn btn-danger'%>
           <% else %>
             <%= link_to "Sign in" , new_user_session_path, class:'btn btn-secondary' %>%

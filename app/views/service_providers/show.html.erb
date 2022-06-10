@@ -1,13 +1,14 @@
-<div class="container">
+<div class="container d-flex justify-content-center mt-3">
 
   <p style="color: green"><%= notice %></p>
 
   <%= render @service_provider %>
-
-  <div>
-    <%= link_to "Edit this service provider", edit_organization_municipality_service_provider_path(@organization, @municipality,@service_provider) %> |
-    <%= link_to "Back to service providers", organization_municipality_service_providers_path %>
-    <%= link_to "Delete", [@organization, @municipality, @service_provider], data: {"turbo-method": :delete } %>
+  <div class="container d-flex justify-content-center" >
+              <%= link_to "Edit", edit_organization_municipality_service_provider_path(@organization, @municipality,@service_provider), class: "btn btn-primary"%> |
+              <%= link_to "Delete", [@organization, @municipality, @service_provider], data: {"turbo-method": :delete }, class: "btn btn-danger" %>
   </div>
+  <div class="container d-flex justify-content-center" >
+    <%= link_to "Back to Municipalities", organization_municipality_path(@organization,@municipality), class: "btn btn-secondary"%>
+  </div>  
 </div>
 

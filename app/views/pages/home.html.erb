@@ -25,9 +25,15 @@
 
     <br><br>
     <div class="container d-flex justify-content-center">
-      <%@service_providers.each do |provider|%>
-            <%= render provider %>
+    <% if params[:search].present? %>
+      <% if @service_providers.present? %>
+        <% @service_providers.each do |provider|%>
+          <%= render provider %>
+        <% end %>
+      <% else %> 
+        <%= "No results found" %> 
       <% end %>
+    <%end%>
     </div>
   </div>
 </div>

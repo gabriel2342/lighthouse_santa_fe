@@ -15,6 +15,7 @@ class MunicipalitiesController < ApplicationController
   # GET /municipalities/new
   def new
     @municipality = Municipality.new
+    @municipality.service_providers.build
 
   end
 
@@ -73,6 +74,10 @@ class MunicipalitiesController < ApplicationController
 
     def set_organization
       @organization = Organization.find(params[:organization_id])
+    end
+
+    def set_service_providers
+      @service_providers = ServiceProvider.all
     end
 
     # Only allow a list of trusted parameters through.
