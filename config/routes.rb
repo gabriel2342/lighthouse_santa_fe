@@ -5,6 +5,10 @@ Rails.application.routes.draw do
       resources :service_providers
       end
     end
+
+  namespace :user do
+    get 'organizations', to: 'organizations#index'
+  end
     
 
   get 'contact', to: 'pages#contact'

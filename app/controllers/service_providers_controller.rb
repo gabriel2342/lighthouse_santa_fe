@@ -30,7 +30,7 @@ class ServiceProvidersController < ApplicationController
 
     respond_to do |format|
       if @service_provider.save
-        format.html { redirect_to organization_municipality_service_provider_url(@organization, @municipality, @service_provider), notice: "Service provider was successfully created." }
+        format.html { redirect_to organization_municipality_url(@organization, @municipality), notice: "Service provider was successfully created." }
         format.json { render :show, status: :created, location: @service_provider }
         format.turbo_stream
       else
@@ -44,7 +44,7 @@ class ServiceProvidersController < ApplicationController
   def update
     respond_to do |format|
       if @service_provider.update(service_provider_params)
-        format.html { redirect_to organization_municipality_service_provider_url(@organization, @municipality, @service_provider), notice: "Service provider was successfully updated." }
+        format.html { redirect_to organization_municipality_url(@organization, @municipality), notice: "Service provider was successfully updated." }
         format.json { render :show, status: :ok, location: @service_provider }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class ServiceProvidersController < ApplicationController
     @service_provider.destroy
 
     respond_to do |format|
-      format.html { redirect_to organization_municipality_service_providers_url(@organization, @municipality), notice: "Service provider was successfully destroyed." }
+      format.html { redirect_to organization_municipality_url(@organization, @municipality), notice: "Service provider was successfully destroyed." }
       format.json { head :no_content }
     end
   end
