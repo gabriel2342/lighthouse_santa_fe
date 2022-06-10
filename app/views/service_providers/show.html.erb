@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center mt-3">
 
-  <p style="color: green"><%= notice %></p>
+  <p style="color: white"><%= notice %></p>
 
   <%= render @service_provider %>
   <div class="container d-flex justify-content-center" >
@@ -8,7 +8,7 @@
               <%= link_to "Delete", [@organization, @municipality, @service_provider], data: {"turbo-method": :delete }, class: "btn btn-danger" %>
   </div>
   <div class="container d-flex justify-content-center" >
-    <%= link_to "Back to Municipalities", organization_municipality_path(@organization,@municipality), class: "btn btn-secondary"%>
+    <%= link_to "Back to Municipality", organization_municipality_path(@organization,@municipality), class: "btn btn-secondary"%>
   </div>  
 </div>
 

@@ -1,26 +1,22 @@
-<div class="container bg-dark text-white w-50 pb-3">
-  <p style="color: green"><%= notice %></p>
-  <%= link_to "Back to Home", organizations_path, class: "text-info"%>
+<div class="container bg-dark text-white p-3 mt-3">
+  <p style="color: white"><%= notice %></p>
   <div class="container mb-2 pt-3 d-flex align-items-center"> 
-    <div class="container text-center">
+    <div class="container d-flex text-center">
       <h1><%= @municipality.name %></h1>
     </div>
-    <div class="container d-flex justify-content-end ">
-      <%= link_to "Add Service Provider", new_organization_municipality_service_provider_path(@organization, @municipality), class: "btn btn-primary" %>
-    </div>   
+      <%= link_to "Add Service Provider", 
+                  new_organization_municipality_service_provider_path(@organization, @municipality), 
+                  class: "btn btn-primary",
+                  data: { turbo_frame: dom_id(ServiceProvider.new) } %>
   </div>
 <div class="container text-center text-decoration-underline">
   <br><h2>Service Providers</h2>
 </div>
 
+<%turbo_frame_tag ServiceProvider.new%>
+
  <% @municipality.service_providers.each do |provider|%>
           <%= render provider %>
-          <div class="container d-flex justify-content-center mb-3">
-            <div class="container d-flex justify-content-end">
-              <%= link_to 'Edit', edit_organization_municipality_service_provider_path(@organization, @municipality, provider),  class: "btn btn-primary"  %> 
-            </div>
-             <%= link_to 'Delete', [@organization, @municipality, provider], method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-danger"  %>
-          </div>
         <% end %>
       
 </div>

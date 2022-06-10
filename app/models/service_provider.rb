@@ -22,7 +22,7 @@ class ServiceProvider < ApplicationRecord
 
   SERVICES_PROVIDED = [ "Long Term Housing", "Immediate Shelter", "Financial Assistance", "Finding Food","Transportation" ,
                         "Legal Services", "Family and Youth Services","Mental Health Services","Substance Use", "Immigration",
-                        "Prisoner Re-entry", "Domestic Violence", "Former or Current U.S. military?"]
+                        "Prisoner Re-entry", "LGBTQ Support", "Domestic Violence", "U.S. Military Support Services"]
 
   def self.search(search)
     if search

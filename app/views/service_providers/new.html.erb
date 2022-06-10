@@ -3,12 +3,14 @@
     <h1>Add a service provider</h1>
   </div>
 
-  <%= render "form", service_provider: @service_provider %>
+  <%= turbo_frame_tag @service_provider do %>
+    <%= render "form", service_provider: @service_provider %>
+  <% end %>
 
   <br>
 
-  <div>
-    <%= link_to "Back to Municipality", organization_municipality_path(@organization, @municipality), class: "btn btn-primary" %>
+  <div class="container">
+    <%= link_to "Back to Municipality", organization_municipality_path(@organization, @municipality), class: "text-info" %>
   </div>
 
 </div>

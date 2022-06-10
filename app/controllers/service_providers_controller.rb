@@ -32,6 +32,7 @@ class ServiceProvidersController < ApplicationController
       if @service_provider.save
         format.html { redirect_to organization_municipality_service_provider_url(@organization, @municipality, @service_provider), notice: "Service provider was successfully created." }
         format.json { render :show, status: :created, location: @service_provider }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @service_provider.errors, status: :unprocessable_entity }
@@ -78,7 +79,7 @@ class ServiceProvidersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_provider_params
-      params.require(:service_provider).permit(:name, :about, :street, :city, :state, :zip, :contact_person, :phone, :email, :url, :image,
+      params.require(:service_provider).permit(:name, :about, :street, :city, :state, :zip, :contact_person, :phone, :email, :url, :map_url, :image,
                                                organizations_attributes: [:id, :name, :_destroy],
                                                municipalities_attributes: [:id, :name, :_destroy], services: [], search: [])
     end
