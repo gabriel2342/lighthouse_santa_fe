@@ -9,6 +9,7 @@ class Municipality < ApplicationRecord
   accepts_nested_attributes_for :service_providers, allow_destroy: true
 
 
+
   def self.search(search)
     if search
     else

@@ -5,7 +5,7 @@ class MunicipalitiesController < ApplicationController
 
   # GET /municipalities or /municipalities.json
   def index
-    @municipalities = Municipality.all
+    @municipalities = Municipality.ordered
   end
 
   # GET /municipalities/1 or /municipalities/1.json

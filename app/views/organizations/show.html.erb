@@ -19,7 +19,9 @@
 
    <%= turbo_frame_tag Municipality.new%>
    <%= turbo_frame_tag "municipalities" do%>
-      <%= render @organization.municipalities%>
+     <div class="container">
+        <%= render @organization.municipalities%>
+      <div>
     <% end %>
 </div>
     

@@ -1,6 +1,7 @@
-<div class="container bg-dark text-white w-50 pt-10">
+<div class="container bg-dark text-white w-50 pt-10 d-flex justify-content-center">
   <h1>New organization</h1>
-  <%= turbo_frame_tag @organization do %>
+
+  <div class="container text-info">
     <%= render "form", organization: @organization %>
-  <% end %>
+  </div>
 </div>

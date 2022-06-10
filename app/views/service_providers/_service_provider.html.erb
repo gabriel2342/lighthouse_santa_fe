@@ -9,7 +9,7 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title"><%="#{service_provider.name}"%></h5>
-          <p class="card-text"><%="#{service_provider.municipality.name}"%> | <%= link_to "Get Directions", "http://maps.google.com/?=#{service_provider.street} #{service_provider.city}, #{service_provider.state}, #{service_provider.zip}", class: "text-info"%></p>
+          <p class="card-text"><%="#{service_provider.municipality.name}"%> | <%= link_to "Get Directions", "http://#{service_provider.map_url}" %></p>
           <p class="card-text"><%= "#{service_provider.about}"%></p>
           <p class="card-text">The services provided by <%=service_provider.name%> are <%="#{((service_provider.services).to_sentence).downcase}."%></p>
           <p class="card-text">Website: <%= link_to "#{service_provider.url}", "http://#{service_provider.url}", class: "text-info"%></p>
