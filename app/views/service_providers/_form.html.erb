@@ -46,7 +46,7 @@
 
       <div class="col-auto">
         <%= form.label :state, style: "display: block" %>
-        <%= select_tag :state, options_for_select(us_states)%>
+        <%= form.select :state, options_for_select(us_states)%>
       </div>
 
       <div class="col">
