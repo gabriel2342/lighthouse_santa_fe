@@ -13,62 +13,68 @@
     <% end %>
 
  
-
     <div>
       <%= form.label :name, style: "display: block" %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, size: "50" %><br><br>
     </div>
 
      <div>
       <%= form.label "Logo", style: "display: block" %>
-      <%= form.file_field :image %>
+      <%= form.file_field :image %><br><br>
     </div>
 
     <div>
       <%= form.label :about, style: "display: block" %>
-      <%= form.text_area :about %>
+      <%= form.text_area :about, size: "50x5" %>
     </div>
-
+    <br>
+  <div>
     <div>
       <%= form.label :street, style: "display: block" %>
-      <%= form.text_field :street %>
+      <%= form.text_field :street, size: "50" %>
     </div>
+  <br>
+    <div class="row justify-content-start">
+      <div class="col-auto">
+        <%= form.label :city, style: "display: block" %>
+        <%= form.text_field :city, size: "16" %>
+      </div>
+      
 
-    <div>
-      <%= form.label :city, style: "display: block" %>
-      <%= form.text_field :city %>
-    </div>
+      <div class="col-3">
+        <%= form.label :state, style: "display: block" %>
+        <%= select_tag :state, options_for_select(us_states)%>
+      </div>
 
-    <div>
-      <%= form.label :state, style: "display: block" %>
-      <%= form.text_field :state %>
-    </div>
-
-    <div>
-      <%= form.label :zip, style: "display: block" %>
-      <%= form.text_field :zip %>
-    </div>
-
-    <div>
-      <%= form.label "Map URL", style: "display: block" %>
-      <%= form.text_field :map_url %>
-    </div>
-
-    <div>
+      <div class="col">
+        <%= form.label :zip, style: "display: block" %>
+        <%= form.text_field :zip, size: "10" %>
+      </div>
+  </div>
+</div>
+<br>
+   
+  <div class="row">
+    <div class="col-auto">
       <%= form.label :phone, style: "display: block" %>
       <%= form.text_field :phone %>
     </div>
 
-    <div>
+    <div class="col">
       <%= form.label :email, style: "display: block" %>
-      <%= form.text_field :email %>
+      <%= form.text_field :email, size: "25" %>
     </div>    
-
-    <div>
+  </div><br>
+<div class="row">
+    <div class="col-auto">
       <%= form.label :url, style: "display: block" %>
       <%= form.text_field :url %>
-    </div> <br>
-
+    </div> 
+     <div class="col">
+      <%= form.label "Map URL", style: "display: block" %>
+      <%= form.text_field :map_url %>
+    </div>
+</div><br>
     <div>
       <h4>Services Provided: </h4>
         <% ServiceProvider::SERVICES_PROVIDED.each do |key| %>
@@ -82,8 +88,9 @@
     
     
     <div>
-      <%= form.submit class: 'btn btn-primary mt-3'%>
+      <%= form.submit "Add Service Provider", class: 'btn btn-primary mt-3'%>
+      <%= link_to "Cancel", organization_municipality_path(@organization, @municipality), class: "btn btn-secondary mt-3" %>
+
     </div>
   <% end %>
   </div>
-

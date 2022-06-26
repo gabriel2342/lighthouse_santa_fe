@@ -15,8 +15,7 @@
 
 <%turbo_frame_tag ServiceProvider.new%>
 
- <% @municipality.service_providers.each do |provider|%>
-          <%= render provider %>
-        <% end %>
-      
+  <%# <% turbo_frame_tag "service_providers" do %> %>
+          <%= render @municipality.service_providers %>
+     <%# <% end %>   %>
 </div>
