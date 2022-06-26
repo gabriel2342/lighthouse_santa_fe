@@ -28,17 +28,23 @@
       <%= form.label :about, style: "display: block" %>
       <%= form.text_area :about, size: "50x5" %>
     </div>
-    <br>
   <div>
     <br>
-    <div class="row justify-content-start">
+    <div>
+        <%= form.label :street, style: "display: block" %>
+        <%= form.text_field :street, size: "50" %>
+    </div><br>
+   <div class="row justify-content-start">
+
+
+    <br>
       <div class="col-auto">
         <%= form.label :city, style: "display: block" %>
-        <%= form.text_field :city, size: "16" %>
+        <%= form.text_field :city, size: "20" %>
       </div>
 
 
-      <div class="col-3">
+      <div class="col-auto">
         <%= form.label :state, style: "display: block" %>
         <%= select_tag :state, options_for_select(us_states)%>
       </div>
@@ -49,19 +55,9 @@
       </div>
   </div>
 </div>
-<br>
+<br><br>
 
-  <div class="row">
-    <div class="col-auto">
-      <%= form.label :phone, style: "display: block" %>
-      <%= form.text_field :phone %>
-    </div>
-
-    <div class="col">
-      <%= form.label :email, style: "display: block" %>
-      <%= form.text_field :email, size: "25" %>
-    </div>    
-  </div><br>
+  
 
     <div class="row">
     <div class="col-auto">
