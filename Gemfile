@@ -5,6 +5,8 @@ ruby "3.1.2"
 gem 'phonelib'
 gem 'valid_email2'
 gem 'devise'
+gem 'cancancan'
+
 group :test do
   gem 'database_cleaner-active_record'
 end

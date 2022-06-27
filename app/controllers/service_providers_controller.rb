@@ -30,7 +30,7 @@ class ServiceProvidersController < ApplicationController
 
     respond_to do |format|
       if @service_provider.save
-        format.html { redirect_to organization_municipalities_url(@organization, @municipality), notice: "Service provider was successfully created." }
+        format.html { redirect_to organization_municipality_url(@organization, @municipality), notice: "Service provider was successfully created." }
         format.json { render :show, status: :created, location: @service_provider }
       else
         format.html { render :new, status: :unprocessable_entity }
